@@ -1,0 +1,223 @@
+
+body{
+    background:#fafafa;
+    margin:0px;
+    height:900px;
+    font-family: sans-serif;
+    background: center top url("../images/backgroundprod.jpg");
+}
+
+.chat_box{
+    position:fixed;
+    right:20px;
+    bottom:0px;
+    width:250px;
+}
+.chat_body{
+    background:white;
+    height:400px;
+    padding:5px 0px;
+}
+
+.chat_head,.msg_head{
+    background: #d3d3d3;
+    color:white;
+    padding:10px;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:5px 5px 0px 0px;
+}
+
+.msg_box{
+    position:fixed;
+    bottom:-5px;
+    width:250px;
+    background:white;
+    border-radius:5px 5px 0px 0px;
+}
+
+.msg_body{
+    background:white;
+    height:200px;
+    font-size:12px;
+    padding:15px;
+    overflow:auto;
+    overflow-x: hidden;
+    border: 1px solid #eee;
+}
+.msg_input{
+    width:100%;
+    border: 1px solid #eee;
+    border-top:1px solid #DDDDDD;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+}
+.minimize{
+    float:right;
+    cursor:pointer;
+    padding-right:5px;
+
+}
+
+.user{
+    position:relative;
+    padding:10px 30px;
+}
+.user:hover{
+    background:#f8f8f8;
+    cursor:pointer;
+
+}
+.user:before{
+    content:'';
+    position:absolute;
+    background:#2ecc71;
+    height:10px;
+    width:10px;
+    left:10px;
+    top:15px;
+    border-radius:6px;
+}
+
+.msg_a{
+    position:relative;
+    background:#FDE4CE;
+    padding:10px;
+    min-height:10px;
+    margin-bottom:5px;
+    margin-right:10px;
+    border-radius:5px;
+}
+.msg_a:before{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    border-color: transparent #FDE4CE transparent transparent;
+    left:-20px;
+    top:7px;
+}
+
+
+.msg_b{
+    background:#EEF2E7;
+    padding:10px;
+    min-height:15px;
+    margin-bottom:5px;
+    position:relative;
+    margin-left:10px;
+    border-radius:5px;
+}
+.msg_b:after{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    border-color: transparent transparent transparent #EEF2E7;
+    right:-20px;
+    top:7px;
+}
+
+@-webkit-keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+
+@-o-keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+
+@keyframes opacity {
+    0% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        opacity: 1;
+    }
+    100% {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+        opacity: 0;
+    }
+}
+#searching-ellipsis span {
+    color: #000;
+}
+
+#searching-ellipsis span {
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: opacity;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-name: opacity;
+    -ms-animation-duration: 1s;
+    -ms-animation-iteration-count: infinite;
+}
+#searching-ellipsis span:nth-child(2) {
+    -webkit-animation-delay: 100ms;
+    -moz-animation-delay: 100ms;
+    -ms-animation-delay: 100ms;
+    -o-animation-delay: 100ms;
+    animation-delay: 100ms;
+}
+#searching-ellipsis span:nth-child(3) {
+    -webkit-animation-delay: 300ms;
+    -moz-animation-delay: 300ms;
+    -ms-animation-delay: 300ms;
+    -o-animation-delay: 300ms;
+    animation-delay: 300ms;
+}

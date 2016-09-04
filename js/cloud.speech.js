@@ -324,12 +324,7 @@ cloud.Speech.prototype.showResults = function (data) {
     var text = data.join('');
 
     if (text !== "false") {
-        $('.msg_input').val(text);
-        $(".msg_input").click();
-
-        var e = jQuery.Event("keypress");
-        e.which = 13;
-        $(".msg_input").trigger(e);
+        submitMessage(text);
     }
 
     this.result_.textContent = text;

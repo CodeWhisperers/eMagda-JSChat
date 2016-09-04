@@ -1,3 +1,23 @@
+var submitMessage = function(msg) {
+    $('.msg_input').val('');
+    if (msg != '') {
+        $('.msg_input').attr('placeholder', '');
+        $('<div class="msg_b">' + msg + '</div>').insertBefore('.msg_push');
+        $('<div id="searching-ellipsis"><span>●</span><span>●</span><span>●</span></div>').insertBefore('.msg_push');
+        $.get("https://bot.cw.yield.ro/chatbot/conversation_start.php?say=" + encodeURIComponent(msg) + "&convo_id=" + sess + "&bot_id=1&format=json", function (data) {
+            $('#searching-ellipsis').remove();
+            var answer = JSON.parse(data);
+            $('<div class="msg_a">' + answer.botsay + '</div>').insertBefore('.msg_push');
+            $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+        });
+    }
+    $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
+    setTimeout((function () {
+        $('.msg_input').val('');
+    }), 150);
+};
+
+
 $(document).ready(function () {
 
     $('.chat_head').click(function () {
@@ -39,22 +59,7 @@ $(document).ready(function () {
         function (e) {
             if (e.keyCode == 13) {
                 var msg = $(this).val();
-                $(this).val('');
-                if (msg != '') {
-                    $('.msg_input').attr('placeholder', '');
-                    $('<div class="msg_b">' + msg + '</div>').insertBefore('.msg_push');
-                    $('<div id="searching-ellipsis"><span>●</span><span>●</span><span>●</span></div>').insertBefore('.msg_push');
-                    $.get("https://bot.cw.yield.ro/chatbot/conversation_start.php?say=" + encodeURIComponent(msg) + "&convo_id=" + sess + "&bot_id=1&format=json", function (data) {
-                        $('#searching-ellipsis').remove();
-                        var answer = JSON.parse(data);
-                        $('<div class="msg_a">' + answer.botsay + '</div>').insertBefore('.msg_push');
-                        $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
-                    });
-                }
-                $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
-                setTimeout((function () {
-                    $('.msg_input').val('');
-                }), 150);
+                submitMessage(msg);
             }
         });
 

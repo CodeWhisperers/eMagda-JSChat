@@ -15,6 +15,17 @@ $(document).ready(function () {
         $('.msg_box').hide();
     });
 
+    $('#speech_demo_record_button').click(function (e) {
+        e.preventDefault();
+
+        if($('.msg_wrap').css('display') == 'block') {
+            e.stopPropagation();
+        }
+
+
+
+    });
+
     $('.user').click(function () {
 
         $('.msg_wrap').show();

@@ -58,6 +58,28 @@ body{
     float:right;
     cursor:pointer;
 }
+
+#speech_demo_record_button{
+    cursor:pointer;
+    float: right;
+    font-size: 21px !important;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    margin-right: 10px;
+}
+
+#speech_demo_record_button:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
 .minimize{
     float:right;
     cursor:pointer;

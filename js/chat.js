@@ -4,12 +4,12 @@ var submitMessage = function(msg) {
     $('.msg_input').val('');
     if (msg != '') {
         $('.msg_input').attr('placeholder', '');
-        $('<div class="msg_b">' + msg + '</div>').insertBefore('.msg_push');
+        $('<div class="msg_a">' + msg + '</div>').insertBefore('.msg_push');
         $('<div id="searching-ellipsis"><span>●</span><span>●</span><span>●</span></div>').insertBefore('.msg_push');
         $.get("https://bot.cw.yield.ro/chatbot/conversation_start.php?say=" + encodeURIComponent(msg) + "&convo_id=" + sess + "&bot_id=1&format=json", function (data) {
             $('#searching-ellipsis').remove();
             var answer = JSON.parse(data);
-            $('<div class="msg_a">' + answer.botsay + '</div>').insertBefore('.msg_push');
+            $('<div class="msg_b">' + answer.botsay + '</div>').insertBefore('.msg_push');
             $('.msg_body').scrollTop($('.msg_body')[0].scrollHeight);
         });
     }
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     var bot = $.ajax({type: "GET", url: "https://bot.cw.yield.ro/gui/jquery/", async: false}).responseText;
     sess = (bot.split('convo_id" value="')[1]).split('"')[0];
-    
+
     $('.chat_head').click(function () {
         $('.chat_body').slideToggle('slow');
         $('.msg_input').focus();

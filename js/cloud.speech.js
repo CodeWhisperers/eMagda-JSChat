@@ -18,7 +18,7 @@ cloud.Speech = function () {
      * Service URL to request annotations.
      * @const {string}
      */
-    this.SERVICE_URL = 'http://speech.cw.yield.ro/process';
+    this.SERVICE_URL = 'https://speech.cw.yield.ro/process';
 
     /**
      * Maximum time, in miliseconds allowed to record audio.
@@ -319,13 +319,17 @@ cloud.Speech.prototype.showResults = function (data) {
     clearTimeout(this.submitTimeout_);
     // Format the response so that it can be displayed in a <pre> tag.
     this.isProcessing_ = false;
-    this.resultContainer_.style.display = 'block';
     this.setButtonState('');
 
     var text = data.join('');
 
-    if (text === "false") {
-        text = "Nu am inteles. Poti, te rog, sa repeti ?"
+    if (text !== "false") {
+        $('.msg_input').val(text);
+        $(".msg_input").click();
+
+        var e = jQuery.Event("keypress");
+        e.which = 13;
+        $(".msg_input").trigger(e);
     }
 
     this.result_.textContent = text;

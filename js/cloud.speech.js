@@ -201,7 +201,9 @@ cloud.Speech.prototype.initRecorder = function () {
  * Hides the demo, used when a feature is not available on the browser.
  */
 cloud.Speech.prototype.hideDemo = function () {
-    this.recordContainer_.style.display = 'none';
+    if(typeof this.recordContainer_ != 'undefined') {
+        this.recordContainer_.style.display = 'none';
+    }
     this.noMicContainer_.style.display = 'block';
     document.getElementById('speech_demo_reload').addEventListener('click',
         function (e) {

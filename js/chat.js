@@ -1,3 +1,5 @@
+var sess;
+
 var submitMessage = function(msg) {
     $('.msg_input').val('');
     if (msg != '') {
@@ -20,6 +22,9 @@ var submitMessage = function(msg) {
 
 $(document).ready(function () {
 
+    var bot = $.ajax({type: "GET", url: "https://bot.cw.yield.ro/gui/jquery/", async: false}).responseText;
+    sess = (bot.split('convo_id" value="')[1]).split('"')[0];
+    
     $('.chat_head').click(function () {
         $('.chat_body').slideToggle('slow');
         $('.msg_input').focus();
@@ -51,9 +56,6 @@ $(document).ready(function () {
         $('.msg_wrap').show();
         $('.msg_box').show();
     });
-
-    var bot = $.ajax({type: "GET", url: "https://bot.cw.yield.ro/gui/jquery/", async: false}).responseText;
-    var sess = (bot.split('convo_id" value="')[1]).split('"')[0];
 
     $('textarea').keypress(
         function (e) {
